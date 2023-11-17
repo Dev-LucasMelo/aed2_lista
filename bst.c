@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "bst.h"
 
-
 //1
 arvore inserir(arvore raiz, int valor){
     if(raiz == NULL){
@@ -114,4 +113,25 @@ void dobro(arvore raiz){
         dobro(raiz->dir);
     }
 
+};
+
+//13
+int busca(arvore raiz, int valor){
+    //0 para nao encontrado
+    //1 para encontrado
+
+    if(raiz != NULL){
+        if(valor == raiz->valor){
+            return 1;
+        }
+
+        if(valor > raiz->valor){
+            return busca(raiz->dir,valor);
+        }
+
+        if(valor < raiz->valor){
+            return busca(raiz->esq,valor);
+        }
+    }
+    return 0;
 };

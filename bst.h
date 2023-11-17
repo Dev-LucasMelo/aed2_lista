@@ -33,4 +33,7 @@ int somaPar(arvore raiz);
 //12
 void dobro(arvore raiz);
 
+//13
+int busca(arvore raiz, int valor);
+
 #endif // BST_H_INCLUDED
