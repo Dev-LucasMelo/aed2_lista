@@ -27,6 +27,9 @@ void reverso(arvore raiz);
 //6
 int qtdPar(arvore raiz);
 
+//9
+arvore remover(arvore raiz,int valor);
+
 //10
 int somaPar(arvore raiz);
 

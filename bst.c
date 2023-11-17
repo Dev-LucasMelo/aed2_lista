@@ -79,6 +79,71 @@ int qtdPar(arvore raiz){
     return contador;
 }
 
+//9
+arvore remover(arvore raiz,int valor){
+
+    //se raiz for nula, retorna raiz
+    if(raiz == NULL){
+        return raiz;
+    }
+
+    //se o valor existir temos que remover
+    if(valor == raiz->valor){
+        //casos de remover
+
+        //caso 1 sem filhos
+        if(raiz->esq == NULL && raiz->dir == NULL){
+            free(raiz);
+            return NULL;
+        }
+        //caso 2 com exatamente um filho direito ou esquerdo
+        //2.1 esquerdo
+        if(raiz->esq != NULL && raiz->dir == NULL){
+            arvore aux;
+            aux = raiz->esq;
+            free(raiz);
+
+            return aux;
+        }
+        //2.2 direito
+        if(raiz->esq == NULL && raiz->dir != NULL){
+            arvore aux;
+            aux = raiz->dir;
+            free(raiz);
+
+            return aux;
+        }
+
+        //caso 3 com dois filhos
+
+        if(raiz->esq != NULL && raiz->dir != NULL){
+            //caminho : trocar maior valor da esquerda
+            //com valor da raiz e chamar recursivamente para bater no caso 1 ou 2
+            arvore aux = raiz->esq;
+            while(aux->dir != NULL){
+                aux = aux->dir;
+            };
+            raiz->valor = aux->valor;
+            aux->valor = valor;
+
+            raiz->esq = remover(raiz->esq,valor);
+            return raiz;
+        }
+    }else{
+        //continua procurando
+        if(valor < raiz->valor){
+            raiz->esq = remover(raiz->esq,valor);
+        }
+
+        if(valor > raiz->valor){
+            raiz->dir = remover(raiz->dir,valor);
+        }
+    }
+
+    return raiz;
+};
+
+
 //10
 int somaPar(arvore raiz){
 
