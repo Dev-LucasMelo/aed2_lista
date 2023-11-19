@@ -230,3 +230,33 @@ int busca(arvore raiz, int valor){
     }
     return 0;
 };
+
+//14
+void descendentes(arvore raiz, int valor){
+    //se a raiz for nula nao faz nada
+    if(raiz == NULL){
+        printf("valor nao encontrado");
+        return;
+    }
+
+    if(valor == raiz->valor){
+        //se o valor existir
+        if(raiz->esq == NULL && raiz->dir == NULL){
+
+        }else{
+            inorder(raiz->esq);
+            inorder(raiz->dir);
+        }
+
+    }else{
+        //procurar valor nas subarvores
+        if(valor < raiz->valor){
+            descendentes(raiz->esq,valor);
+        }
+        if(valor > raiz->valor){
+            descendentes(raiz->dir,valor);
+        }
+    }
+
+
+};

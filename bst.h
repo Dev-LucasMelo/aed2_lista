@@ -42,4 +42,7 @@ void dobro(arvore raiz);
 //13
 int busca(arvore raiz, int valor);
 
+//14
+void descendentes(arvore raiz, int valor);
+
 #endif // BST_H_INCLUDED
