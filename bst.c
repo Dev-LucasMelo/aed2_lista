@@ -165,6 +165,36 @@ int somaPar(arvore raiz){
     return somador;
 };
 
+//11
+arvore podar(arvore raiz, int valor){
+    //se raiz for vazia n faz nada
+    if(raiz == NULL){
+        return NULL;
+    }
+
+    if(valor == raiz->valor){
+        //se encontrar o valor exclua ele e seus descendentes
+        free(raiz);
+
+        return NULL;
+
+    }else{
+    //procurar elemento para excluir
+
+        if(valor < raiz->valor){
+            //podar recursivamente pela esquerda
+            raiz->esq = podar(raiz->esq,valor);
+        }
+
+        if(valor > raiz->valor){
+            //podar recursivamente pela direita
+            raiz->dir = podar(raiz->dir,valor);
+        }
+    }
+
+    return raiz;
+};
+
 //12
 void dobro(arvore raiz){
 

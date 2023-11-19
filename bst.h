@@ -33,6 +33,9 @@ arvore remover(arvore raiz,int valor);
 //10
 int somaPar(arvore raiz);
 
+//11
+arvore podar(arvore raiz, int valor);
+
 //12
 void dobro(arvore raiz);
 
