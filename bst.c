@@ -79,6 +79,27 @@ int qtdPar(arvore raiz){
     return contador;
 }
 
+//8
+int pai(arvore raiz,int valor){
+
+    if(raiz != NULL){
+        if(valor == raiz->dir->valor || valor == raiz->esq->valor){
+            return raiz->valor;
+        }else{
+            if(valor < raiz->valor){
+                return pai(raiz->esq,valor);
+            }
+
+            if(valor > raiz->valor){
+                return pai(raiz->dir,valor);
+            }
+
+        }
+    }
+
+    return -1;
+};
+
 //9
 arvore remover(arvore raiz,int valor){
 

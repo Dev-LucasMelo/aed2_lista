@@ -27,6 +27,9 @@ void reverso(arvore raiz);
 //6
 int qtdPar(arvore raiz);
 
+//8
+int pai(arvore raiz,int valor);
+
 //9
 arvore remover(arvore raiz,int valor);
 
